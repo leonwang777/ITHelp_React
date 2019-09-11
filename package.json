@@ -1,0 +1,28 @@
+{
+  "name": "redux_exercise",
+  "version": "1.0.0",
+  "description": "practice redux https://ithelp.ithome.com.tw/articles/10196346",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.config.js --open --hot --inline",
+    "lint": "eslint --ext .js,.jsx src",
+    "lint:fix": "eslint --ext .js,.jsx src --fix",
+    "lint:staged": "lint-staged",
+    "build:dev": "./node_modules/.bin/cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js --progress",
+    "build:prod": "./node_modules/.bin/cross-env NODE_ENV=production webpack -p --config config/webpack.prod.config.js --progress",
+    "analyze": "./node_modules/.bin/cross-env NODE_ENV=production npm_config_report=true && webpack -p --config config/webpack.analyze.config.js --progress",
+    "clean": "rimraf dist coverage",
+    "test": "jest --config src/jest/jest.config.js --verbose --passWithNoTests",
+    "test:coverage": "jest --config ./jest.config.js --verbose --coverage",
+    "test:clean": "jest --clearCache",
+    "test:watch": "jest --config ./jest/jest.config.js --verbose --watchAll"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "leon",
+  "license": "ISC",
+  "devDependencies": {
+    
+  }
+}
