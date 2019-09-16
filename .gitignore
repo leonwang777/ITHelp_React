@@ -49,6 +49,7 @@ bower_components
 # misc
 .sass-cache
 connect.lock
+yarn.lock
 typings
 
 # Logs

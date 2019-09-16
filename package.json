@@ -4,25 +4,66 @@
   "description": "practice redux https://ithelp.ithome.com.tw/articles/10196346",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.config.js --open --hot --inline",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config.js --open --hot --inline",
     "lint": "eslint --ext .js,.jsx src",
     "lint:fix": "eslint --ext .js,.jsx src --fix",
     "lint:staged": "lint-staged",
-    "build:dev": "./node_modules/.bin/cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js --progress",
-    "build:prod": "./node_modules/.bin/cross-env NODE_ENV=production webpack -p --config config/webpack.prod.config.js --progress",
-    "analyze": "./node_modules/.bin/cross-env NODE_ENV=production npm_config_report=true && webpack -p --config config/webpack.analyze.config.js --progress",
+    "dev": "cross-env NODE_ENV=development webpack --config webpack.dev.config.js --progress",
+    "prod": "cross-env NODE_ENV=production webpack -p --config webpack.prod.config.js --progress",
+    "analyze": "cross-env NODE_ENV=production npm_config_report=true && webpack -p --config webpack.analyze.config.js --progress",
     "clean": "rimraf dist coverage",
-    "test": "jest --config src/jest/jest.config.js --verbose --passWithNoTests",
-    "test:coverage": "jest --config ./jest.config.js --verbose --coverage",
+    "clean-start": "rm -rf node_modules && yarn install && rm -rf $TMPDIR/react* && npm start --reset-cache",
+    "test": "jest --config ./src/jest/jest.config.js --verbose --passWithNoTests",
+    "test:coverage": "jest --config ./src/jest.config.js --verbose --coverage",
     "test:clean": "jest --clearCache",
-    "test:watch": "jest --config ./jest/jest.config.js --verbose --watchAll"
+    "test:watch": "jest --config ./src/jest/jest.config.js --verbose --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:leonwang777/ITHelp_React.git"
   },
   "keywords": [
-    "redux"
+    "redux",
+    "react"
   ],
+  "bugs": {
+    "url": "https://github.com/leonwang777/ITHelp_React/issues"
+  },
   "author": "leon",
   "license": "ISC",
   "devDependencies": {
-    
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@hot-loader/react-dom": "^16.9.0",
+    "babel-loader": "^8.0.6",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-react": "^7.14.3",
+    "html-webpack-plugin": "^3.2.0",
+    "import-local": "^3.0.2",
+    "json-parse-better-errors": "^1.0.2",
+    "loadash": "^1.0.0",
+    "redux-devtools": "^3.5.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "prop-types": "^15.7.2",
+    "prop-types-extra": "^1.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "reducer": "^0.19.2",
+    "redux": "^4.0.4"
   }
 }
